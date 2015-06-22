@@ -1,0 +1,46 @@
+//  ---------------------------------------------------------
+//  granite
+//  =========================================================
+//  the aim of granite is to have a lightweight, customisable
+//  framework, ready to build up in as little time at all.
+//
+//  it uses BEM and OOCSS along with an interpretation of 
+//  SMACSS. make a copy of _settings.scss to get started.  
+//  ---------------------------------------------------------
+
+@import
+
+//  settings
+//  --------
+    "settings",
+
+
+//  utilities
+//  ---------
+    //  functions
+    //  ---------
+        "utilities/functions/gap",
+
+    //  mixins
+    //  ------
+        "utilities/mixins/breakpoint",
+        "utilities/mixins/build-spans",
+        "utilities/mixins/clearfix",
+
+    //  third party
+    //  -----------
+        "utilities/third-party/normalize.css/normalize.css",
+
+
+//  generic
+//  -------
+    "generic/main",
+
+
+//  modules
+//  -------
+    "modules/spans";
+
+
+//  singletons
+//  ----------

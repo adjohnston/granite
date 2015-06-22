@@ -1,0 +1,105 @@
+//  ---------------
+//  spans : modules
+//  ---------------
+
+//  spans wrapper & spans - spans
+//  ======================================
+//  all span wrappers and inner spans have
+//  default guttering to help layout the
+//  columns.
+//  --------------------------------------
+    .#{$spans-className}, [class*="#{$spans-spansName}__"] {
+      padding-left:  gap(0.5);
+      padding-right: gap(0.5);
+    }
+
+//  no gutter classes
+//  -----------------
+    .#{$spans-className}--#{$spans-no-gutterName} {
+      padding-left:  0;
+      padding-right: 0;
+    }
+
+    .#{$spans-className}--#{$spans-no-gutter-leftName} {
+      padding-left:  0;
+    }
+
+    .#{$spans-className}--#{$spans-no-gutter-rightName} {
+      padding-right: 0;
+    }
+
+
+//  if $use-flexbox 
+//  ---------------
+    @if $use-flexbox {
+
+    //  spans wrapper
+    //  -------------
+        .#{$spans-className} {
+          @each $prefix in -webkit-, -moz-, -ms-, null {
+            display: #{$prefix}flex;
+            #{$prefix}flex-flow: row wrap;
+          }
+        }
+
+        //  set styling for all spans
+        //  -------------------------
+            [class*="#{$spans-spansName}__"] {
+              @each $prefix in -webkit-, -moz-, -ms-, null {
+                #{$prefix}order: 0;
+              }
+            }
+
+        //  spans - fill
+        //  ------------
+            .#{$spans-spansName}__#{$spans-fillName} {
+              @each $prefix in -webkit-, -moz-, -ms-, null {
+                #{$prefix}flex: 1 1 0;
+              }
+            }
+
+        //  spans - spans
+        //  -------------
+            @include build-spans;
+
+            @if $is-responsive {
+
+              //  tablet flexbox spans
+              //  --------------------
+                  @include build-spans($spans-columns / 2, $laptop-viewport);
+
+              //  mobile flexbox spans
+              //  --------------------
+                  @include build-spans($spans-columns / 4, $tablet-viewport);
+
+            }
+    } @else {
+
+      //  spans wrapper
+      //  -------------
+          .#{$spans-className} {
+            @include clearfix;
+          }
+
+        //  set styling for all spans
+        //  -------------------------
+            [class*="#{$spans-spansName}__"] {
+              float: left;
+            }
+
+        //  spans - spans
+        //  -------------
+            @include build-spans;
+
+            @if $is-responsive {
+
+              //  tablet spans
+              //  ------------
+                  @include build-spans($spans-columns / 2, $laptop-viewport);
+
+              //  mobile spans
+              //  ------------
+                  @include build-spans($spans-columns / 4, $tablet-viewport);
+            
+            }
+    }

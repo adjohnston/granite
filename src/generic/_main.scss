@@ -1,0 +1,19 @@
+//  --------------
+//  main : generic
+//  --------------
+
+//  box sizing
+//  ----------
+    * {
+      @each $prefix in -webkit-, -moz-, null {
+        #{$prefix}box-sizing: border-box;
+      }
+    }
+    
+
+//  html
+//  ----
+    html {
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }

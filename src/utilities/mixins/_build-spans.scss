@@ -1,0 +1,68 @@
+//  --------------------------------
+//  build spans : mixins : utilities
+//  --------------------------------
+
+//  build spans is used internally by the spans
+//  to automatically generate a number of spans
+//  based on the settings provided.
+//  -------------------------------------------
+    @mixin build-spans($columns: $spans-columns, $viewport: null) {
+      //  it's possible to have a number of columns which
+      //  is lower than 1, so we make sure the minimum of
+      //  columns to 2.
+      //  -----------------------------------------------
+          @if $columns < 2 {
+            $columns: 2;
+          }
+
+
+      @if $use-flexbox {
+        @if $viewport {
+          
+          @include breakpoint($max: $viewport) {
+            @for $n from 1 through $columns {
+              
+              .#{$spans-className}__#{$spans-spansName + $n}of#{$columns} {
+                @each $prefix in -webkit-, -moz-, -ms-, null {
+                  #{$prefix}flex: 0 1 (100% / $columns * $n);
+                }
+              }
+
+            }
+          }
+
+        } @else {
+          @for $n from 1 through $columns {
+              
+            .#{$spans-className}__#{$spans-spansName + $n}of#{$columns} {
+              @each $prefix in -webkit-, -moz-, -ms-, null {
+                #{$prefix}flex: 0 1 (100% / $columns * $n);
+              }
+            }
+
+          }
+        }
+      } @else {
+        @if $viewport {
+          
+          @include breakpoint($max: $viewport) {
+            @for $n from 1 through $columns {
+              
+              .#{$spans-className}__#{$spans-spansName + $n}of#{$columns} {
+                width: 100% / $columns * $n;
+              }
+
+            }
+          }
+
+        } @else {
+          @for $n from 1 through $columns {
+              
+            .#{$spans-className}__#{$spans-spansName + $n}of#{$columns} {
+              width: 100% / $columns * $n;
+            }
+
+          }
+        }
+      }
+    }

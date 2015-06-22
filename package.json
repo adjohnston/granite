@@ -1,0 +1,18 @@
+{
+  "name": "granite",
+  "version": "0.0.1",
+  "description": "A small, customisable, quick-start SCSS framework",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adjohnston/granite.git"
+  },
+  "authors": [
+    "Adam Johnston <adam.johnston3679@gmail.com>"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.1",
+    "gulp-sourcemaps": "^1.5.2"
+  }
+}

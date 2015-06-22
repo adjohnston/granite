@@ -1,0 +1,21 @@
+{
+  "name": "granite",
+  "version": "0.0.1",
+  "homepage": "https://github.com/adjohnston/granite",
+  "description": "A small, customisable, quick-start SCSS framework",
+  "authors": [
+    "Adam Johnston <adam.johnston3679@gmail.com>"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gulpfile",
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.3"
+  }
+}
