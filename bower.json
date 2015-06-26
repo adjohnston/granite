@@ -1,6 +1,6 @@
 {
     "name": "granite",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "homepage": "https://github.com/adjohnston/granite",
     "authors": [
         "Adam Johnston <adam.johnston3679@gmail.com>"
@@ -9,7 +9,9 @@
     "ignore": [
         "**/.*",
         "node_modules",
-        "utilities/third-party" 
+        "bower_components",
+        "gulpfile.js",
+        "package.json" 
     ],
     "dependencies": {
         "normalize.css": "~3.0.3"

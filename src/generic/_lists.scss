@@ -1,0 +1,12 @@
+//  ---------------
+//  lists : generic
+//  ---------------
+
+    ul, ol {
+      margin: 0 0 gap();
+      padding-left: gap();
+    }
+
+    li {
+      line-height: initial;
+    }

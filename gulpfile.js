@@ -5,9 +5,7 @@ var gulp       = require('gulp'),
 gulp.task('sass', function () {
   gulp.src('src/**/*.scss')
     .pipe(sourcemaps.init())
-      .pipe(sass({
-        style: 'compact'
-      }))
+      .pipe(sass())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/css/granite'));
 });
